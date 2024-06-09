@@ -4,6 +4,7 @@ import 'package:weather/cubit/getweathercubit/get_weather_cubit.dart';
 import 'package:weather/cubit/getweathercubit/get_weather_state.dart';
 import 'package:weather/features/homeScreen/views/data_found.dart';
 import 'package:weather/features/homeScreen/views/data_notfound.dart';
+import 'package:weather/features/homeScreen/views/errorscreen.dart';
 class HomeScreen extends StatelessWidget {
    HomeScreen({super.key});
     bool weatherModel=true ;
@@ -18,7 +19,7 @@ class HomeScreen extends StatelessWidget {
           return  DataFoundScreen();
         }
         else if (state is WeatherInfoIncorrectState) {
-          return Text("THe Data the wrong ");
+          return ErrorScreen();
         }else{
          return const DataNotFoundScreen();
         }

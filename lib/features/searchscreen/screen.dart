@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lottie/lottie.dart';
 import 'package:weather/core/image.dart';
 import 'package:weather/cubit/getweathercubit/get_weather_cubit.dart';
 import 'package:weather/features/BottomNavigationbar/screen.dart';
@@ -43,41 +44,53 @@ class _SearchScreenState extends State<SearchScreen> {
             fit: BoxFit.cover,
           ),
         ),
-        child:  Container(
-          padding: const EdgeInsets.symmetric(
-            vertical: 50,
-            horizontal: 20,
-          ),
-          width: double.infinity,
-          child: TextFormField(
-            onFieldSubmitted: (cityName)  {
-              BlocProvider.of<GetWeatherCubit>(context).getWeather(city: cityName);
-              // ignore: use_build_context_synchronously
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => BottomNavigationBarScreen(),));
-
-            },
-            decoration: const InputDecoration(
-              contentPadding: EdgeInsets.symmetric(vertical: 25.0, horizontal: 10.0),
-              hintText: "Search for a city",
-              hintStyle: TextStyle(
-                color: Colors.grey,
+        child:  SingleChildScrollView(
+          child: Column(
+            //mainAxisAlignment: MainAxisAlignment.t,
+            children: [
+              Lottie.asset('assets/images/locationsearch.json',
+              width: double.infinity,
+                height: MediaQuery.of(context).size.height*0.3,
+          
               ),
-              labelText: "search",
-              labelStyle: TextStyle(color: Colors.orange),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.orange,
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 50,
+                  horizontal: 20,
+                ),
+                width: double.infinity,
+                child: TextFormField(
+                  onFieldSubmitted: (cityName)  {
+                    BlocProvider.of<GetWeatherCubit>(context).getWeather(city: cityName);
+                    // ignore: use_build_context_synchronously
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => BottomNavigationBarScreen(),));
+          
+                  },
+                  decoration: const InputDecoration(
+                    contentPadding: EdgeInsets.symmetric(vertical: 25.0, horizontal: 10.0),
+                    hintText: "Search for a city",
+                    hintStyle: TextStyle(
+                      color: Colors.grey,
+                    ),
+                    labelText: "search",
+                    labelStyle: TextStyle(color: Colors.orange),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.orange,
+                      ),
+                    ),
+                    enabledBorder:  OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.black,
+                      ),
+                    ),
+                    suffixIcon:Icon(Icons.search),
+                  ),
                 ),
               ),
-              enabledBorder:  OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.black,
-                ),
-              ),
-              suffixIcon:Icon(Icons.search),
-            ),
+            ],
           ),
-        ),
+        )
       ),
     );
   }
