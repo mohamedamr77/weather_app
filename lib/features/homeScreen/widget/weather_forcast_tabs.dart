@@ -46,7 +46,6 @@ class _WeatherForecastTabsState extends State<WeatherForecastTabs> with TickerPr
             ),
             child: Column(
               children: [
-
                 Container(
                   width: double.infinity,
                   height: 65,
