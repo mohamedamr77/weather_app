@@ -51,11 +51,11 @@ class _InitalScreenState extends State<InitalScreen> {
     if(permission==LocationPermission.whileInUse) {
       //if person not move
       Position position=await Geolocator.getCurrentPosition();
-      weatherModel=await WeatherService(dio: Dio()).getCurrentWeather(latitude: position.latitude, longitude: position.longitude);
-      print(position.latitude);
-      print(position.longitude);
+      double longitude = position.longitude;
+      double latitude = position.latitude;
+      String cityName = '$latitude,$longitude';
+      WeatherService(dio: Dio()).getWeather(city: cityName);
     }
-
   }
 
   @override

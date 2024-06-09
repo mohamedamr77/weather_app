@@ -1,4 +1,4 @@
 class WeatherState{}
-class NoWeatherState extends WeatherState{}
+class WeatherInitialState extends WeatherState{}
 class WeatherInfoCorrectState extends WeatherState{}
 class WeatherInfoIncorrectState extends WeatherState{}

@@ -7,7 +7,6 @@ import 'service/weather_service.dart';
 
 void main() {
   runApp(MyApp());
-  WeatherService(dio: Dio()).getWeather(city: "cairo");
 }
 
 class MyApp extends StatelessWidget {
