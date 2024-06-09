@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:weather/core/color.dart';
@@ -5,6 +6,8 @@ import 'package:weather/core/image.dart';
 import 'package:weather/core/text.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:weather/features/BottomNavigationbar/screen.dart';
+import 'package:weather/model/weathermodel.dart';
+import 'package:weather/service/weather_service.dart';
 class InitalScreen extends StatefulWidget {
   const InitalScreen({super.key});
 
@@ -48,6 +51,7 @@ class _InitalScreenState extends State<InitalScreen> {
     if(permission==LocationPermission.whileInUse) {
       //if person not move
       Position position=await Geolocator.getCurrentPosition();
+      weatherModel=await WeatherService(dio: Dio()).getCurrentWeather(latitude: position.latitude, longitude: position.longitude);
       print(position.latitude);
       print(position.longitude);
     }
@@ -126,3 +130,4 @@ class _InitalScreenState extends State<InitalScreen> {
     );
   }
 }
+WeatherModel? weatherModel;

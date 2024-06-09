@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather/core/color.dart';
+import 'package:weather/features/initalscreen/screen.dart';
 import 'package:weather/features/searchscreen/screen.dart';
 
 class CityName extends StatelessWidget {
@@ -8,7 +9,7 @@ class CityName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-       "cairo",
+       weatherModel?.city??"",
       style: TextStyle(
         color: ColorApp.whiteColor,
         fontSize: MediaQuery.of(context).size.height*0.05,
