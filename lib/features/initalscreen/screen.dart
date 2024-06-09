@@ -45,7 +45,13 @@ class _InitalScreenState extends State<InitalScreen> {
           'Location permissions are permanently denied, we cannot request permissions.');
     }
     // When we reach here, permissions are granted and we can continue accessing the position of the device.
-    await Geolocator.getCurrentPosition();
+    if(permission==LocationPermission.whileInUse) {
+      //if person not move
+      Position position=await Geolocator.getCurrentPosition();
+      print(position.latitude);
+      print(position.longitude);
+    }
+
   }
 
   @override
