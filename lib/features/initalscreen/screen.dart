@@ -1,13 +1,15 @@
-import 'package:dio/dio.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather/core/color.dart';
 import 'package:weather/core/image.dart';
 import 'package:weather/core/text.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:weather/features/BottomNavigationbar/screen.dart';
-import 'package:weather/model/weathermodel.dart';
-import 'package:weather/service/weather_service.dart';
+
+
+import '../../cubit/getweathercubit/get_weather_cubit.dart';
 class InitalScreen extends StatefulWidget {
   const InitalScreen({super.key});
 
@@ -54,7 +56,7 @@ class _InitalScreenState extends State<InitalScreen> {
       double longitude = position.longitude;
       double latitude = position.latitude;
       String cityName = '$latitude,$longitude';
-      WeatherService(dio: Dio()).getWeather(city: cityName);
+      BlocProvider.of<GetWeatherCubit>(context).getWeather(city: cityName);
     }
   }
 
@@ -130,4 +132,3 @@ class _InitalScreenState extends State<InitalScreen> {
     );
   }
 }
-WeatherModel? weatherModel;

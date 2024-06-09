@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather/core/image.dart';
+import 'package:weather/cubit/getweathercubit/get_weather_cubit.dart';
 import 'package:weather/features/BottomNavigationbar/screen.dart';
 import 'package:weather/model/weathermodel.dart';
 import 'package:weather/service/weather_service.dart';
@@ -48,8 +50,8 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
           width: double.infinity,
           child: TextFormField(
-            onFieldSubmitted: (value)  {
-
+            onFieldSubmitted: (cityName)  {
+              BlocProvider.of<GetWeatherCubit>(context).getWeather(city: cityName);
               // ignore: use_build_context_synchronously
               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => BottomNavigationBarScreen(),));
 
