@@ -13,12 +13,25 @@ class AvgTemperature extends StatelessWidget {
   Widget build(BuildContext context) {
     WeatherModel weatherModel =
         BlocProvider.of<GetWeatherCubit>(context).weatherModel;
-    return Stack(
-      alignment: Alignment.topRight,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(
-          width: MediaQuery.of(context).size.width*0.3,
-          child: Text(
+        Text(
+          "${weatherModel.averageTemperature.round()}",
+          style: TextStyle(
+            color: ColorApp.whiteColor,
+            fontSize: MediaQuery.of(context).size.height*0.1,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        CircleTemprature(size: 72),
+      ],
+    );
+  }
+}
+
+/*
+Text(
             "${weatherModel.averageTemperature.round()}",
             style: TextStyle(
               color: ColorApp.whiteColor,
@@ -26,9 +39,4 @@ class AvgTemperature extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-        ),
-        CircleTemprature(size: MediaQuery.of(context).size.height*0.09,)
-      ],
-    );
-  }
-}
+ */

@@ -61,6 +61,8 @@ class _WeatherForecastTabsState extends State<WeatherForecastTabs> with TickerPr
                   width: double.infinity,
                   height: 65,
                   child: TabBar(
+                    dividerColor: Colors.white24,
+                    indicatorColor: Colors.white,
                     labelColor: Colors.white,
                     unselectedLabelColor: Colors.white24,
                     controller: tabController,

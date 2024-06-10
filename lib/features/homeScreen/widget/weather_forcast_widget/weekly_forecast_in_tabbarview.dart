@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather/core/color.dart';
@@ -11,7 +14,7 @@ class WeeklyForecastInTabBarView extends StatelessWidget {
 
   String getDayOfWeek(DateTime date) {
     // Get the name of the day for the given date
-    return [ "Saturday","Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",][date.weekday % 7];
+    return [ "Sat","Sun", "Mon", "Tue", "Wed", "Thu", "Fri",][date.weekday % 7];
   }
 
   @override
@@ -38,43 +41,45 @@ class WeeklyForecastInTabBarView extends StatelessWidget {
                 color: ColorApp.deepVioletColor.withOpacity(0.8),
                 borderRadius: BorderRadius.circular(30),
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: FittedBox(
-                      child: Text(
-                        getDayOfWeek(dailyForecast.date),
-                       textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          color: ColorApp.whiteColor,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14,
-                        ),
+              child: Padding(
+                padding:  EdgeInsets.symmetric(
+                  vertical: MediaQuery.of(context).size.height*0.02,
+
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      getDayOfWeek(dailyForecast.date),
+                     textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: ColorApp.whiteColor,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
                       ),
                     ),
-                  ),
-                  Image.network(
-                    "https:${ dailyForecast.image}",
-                    width: 40,
-                    height: 40,
-                  ),
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        "${dailyForecast.temperature.round()}",
-                        style: const TextStyle(
-                          color: ColorApp.whiteColor,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                    Image.network(
+                      "https:${ dailyForecast.image}",
+                      width: 40,
+                      height: 40,
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "${dailyForecast.temperature.round()}",
+                          style: const TextStyle(
+                            color: ColorApp.whiteColor,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500
+                          ),
                         ),
-                      ),
-                      const CircleTemprature(size: 25),
-                    ],
-                  ),
-                ],
+                        const CircleTemprature(size: 23),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           );
