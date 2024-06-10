@@ -13,36 +13,47 @@ class WeatherForecastTabs extends StatefulWidget {
 }
 
 class _WeatherForecastTabsState extends State<WeatherForecastTabs> with TickerProviderStateMixin {
+  late TabController tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: 2, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    tabController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    TabController tabController= TabController  (length: 2, vsync: this );
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
-
-        //home photo put in background
+        // Home photo put in background
         SizedBox(
-            height: MediaQuery.of(context).size.height*0.505,
-            child: Image(image: AssetImage(ImageApp.houseImage),)),
-
+          height: MediaQuery.of(context).size.height * 0.505,
+          child: Image(image: AssetImage(ImageApp.houseImage)),
+        ),
         Positioned(
-
           child: Container(
             width: double.infinity,
-            height:MediaQuery.of(context).size.height*0.3,
+            height: MediaQuery.of(context).size.height * 0.3,
             decoration: BoxDecoration(
-                borderRadius: const BorderRadius.only(
-                  topRight: Radius.circular(30),
-                  topLeft: Radius.circular(30),
-                ),
-                gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                     ColorApp.midnightBlueColor.withOpacity(0.9),
-                     ColorApp.deepBlueColor.withOpacity(0.9),
-                    ]
-                )
+              borderRadius: const BorderRadius.only(
+                topRight: Radius.circular(30),
+                topLeft: Radius.circular(30),
+              ),
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  ColorApp.midnightBlueColor.withOpacity(0.9),
+                  ColorApp.deepBlueColor.withOpacity(0.9),
+                ],
+              ),
             ),
             child: Column(
               children: [
@@ -54,19 +65,17 @@ class _WeatherForecastTabsState extends State<WeatherForecastTabs> with TickerPr
                     unselectedLabelColor: ColorApp.greyLightColor,
                     controller: tabController,
                     tabs: [
-                      Tab(text: TextApp.hourlyForecastText,),
-                      Tab(text: TextApp.weeklyForecastText,),
-
-                    ],),
+                      Tab(text: TextApp.hourlyForecastText),
+                      Tab(text: TextApp.weeklyForecastText),
+                    ],
+                  ),
                 ),
-                Container(
-                  width: double.infinity,
-                  height: 160,
+                Expanded(
                   child: TabBarView(
                     controller: tabController,
                     children: [
                       HourlyForecastInTabBarView(),
-                      WeeklyForecastInTabBarView()
+                      WeeklyForecastInTabBarView(),
                     ],
                   ),
                 ),

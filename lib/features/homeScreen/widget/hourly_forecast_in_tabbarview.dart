@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather/core/image.dart';
 import 'package:weather/features/homeScreen/widget/circleTemprature/circle_temprature_text.dart';
 import '../../../core/color.dart';
 import '../../../cubit/getweathercubit/get_weather_cubit.dart';

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather/core/color.dart';
-import 'package:weather/features/initalscreen/screen.dart';
-import 'package:weather/features/searchscreen/screen.dart';
 
 import '../../../cubit/getweathercubit/get_weather_cubit.dart';
 import '../../../model/weathermodel.dart';

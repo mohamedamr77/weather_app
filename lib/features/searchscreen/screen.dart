@@ -1,12 +1,9 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 import 'package:weather/core/image.dart';
 import 'package:weather/cubit/getweathercubit/get_weather_cubit.dart';
 import 'package:weather/features/BottomNavigationbar/screen.dart';
-import 'package:weather/model/weathermodel.dart';
-import 'package:weather/service/weather_service.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});

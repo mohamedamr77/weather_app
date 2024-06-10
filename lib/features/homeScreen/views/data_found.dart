@@ -20,16 +20,18 @@ class DataFoundScreen extends StatelessWidget {
             fit:BoxFit.cover,
           )
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(height:  MediaQuery.of(context).size.height*0.1,),
-          CityName(),
-          AvgTemperature(),
-          TemperatureConditions(),
-          HighLowTemperature(),
-          WeatherForecastTabs(),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(height:  MediaQuery.of(context).size.height*0.1,),
+            CityName(),
+            AvgTemperature(),
+            TemperatureConditions(),
+            HighLowTemperature(),
+            WeatherForecastTabs(),
+          ],
+        ),
       ),
     );
   }

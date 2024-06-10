@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../core/image.dart';
-import '../../../core/text.dart';
 
 
 class DataNotFoundScreen extends StatelessWidget {

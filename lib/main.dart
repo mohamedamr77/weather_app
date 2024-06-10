@@ -1,9 +1,7 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather/cubit/getweathercubit/get_weather_cubit.dart';
 import 'features/initalscreen/screen.dart';
-import 'service/weather_service.dart';
 
 void main() {
   runApp(MyApp());

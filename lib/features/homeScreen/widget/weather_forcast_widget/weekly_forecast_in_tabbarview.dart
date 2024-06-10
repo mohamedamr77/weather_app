@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather/core/color.dart';
 
-import '../../../../core/image.dart';
 import '../../../../cubit/getweathercubit/get_weather_cubit.dart';
 import '../../../../model/weathermodel.dart';
 import '../circleTemprature/circle_temprature_text.dart';
