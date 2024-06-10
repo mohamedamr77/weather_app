@@ -27,8 +27,8 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
         },
         currentIndex: currentIndex,
         backgroundColor: Colors.deepPurple[700],
-        selectedItemColor: Colors.cyan,
-        unselectedItemColor: Colors.white,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white24,
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.home),

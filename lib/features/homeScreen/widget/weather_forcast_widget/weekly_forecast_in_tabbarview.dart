@@ -11,7 +11,7 @@ class WeeklyForecastInTabBarView extends StatelessWidget {
 
   String getDayOfWeek(DateTime date) {
     // Get the name of the day for the given date
-    return [ "Saturday","Sunday", "Monday", "Tuesday", "Wednes", "Thursday", "Friday",][date.weekday % 7];
+    return [ "Saturday","Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",][date.weekday % 7];
   }
 
   @override
@@ -42,16 +42,16 @@ class WeeklyForecastInTabBarView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 12),
-                    child: Text(
-                      getDayOfWeek(dailyForecast.date)=="Wednes"?
-                      "${ getDayOfWeek(dailyForecast.date)} \n day":
-                      getDayOfWeek(dailyForecast.date),
-                     textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: ColorApp.whiteColor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14,
+                    padding: const EdgeInsets.all(10),
+                    child: FittedBox(
+                      child: Text(
+                        getDayOfWeek(dailyForecast.date),
+                       textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          color: ColorApp.whiteColor,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                        ),
                       ),
                     ),
                   ),
