@@ -35,6 +35,7 @@ class WeatherModel {
       dailyList.add(DailyForecast.fromJson(day));
     }
 
+
     return WeatherModel(
       city: json["location"]["name"],
       maxTemperature: json["forecast"]["forecastday"][0]["day"]["maxtemp_c"],
